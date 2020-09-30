@@ -25,5 +25,8 @@
   "homepage": "https://github.com/Zel9278/Lest#readme",
   "dependencies": {
     "discord.js": "^12.3.1"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
   }
 }

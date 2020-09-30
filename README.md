@@ -64,4 +64,4 @@ module.exports = commands;
 ```
 
 ## その他
-<client>.lest: this.lest
+`<client>.lest: this.lest`
