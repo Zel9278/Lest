@@ -62,3 +62,6 @@ const commands = {
 
 module.exports = commands;
 ```
+
+## その他
+<client>.lest: this.lest

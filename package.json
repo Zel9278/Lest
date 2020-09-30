@@ -1,0 +1,29 @@
+{
+  "name": "lest",
+  "version": "2.2.1",
+  "description": "Lest - Discor.js Command Framework",
+  "main": "Lest.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Zel9278/Lest.git"
+  },
+  "keywords": [
+    "discord.js",
+    "framework"
+  ],
+  "author": "Zel9278",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Zel9278/Lest/issues"
+  },
+  "homepage": "https://github.com/Zel9278/Lest#readme",
+  "dependencies": {
+    "discord.js": "^12.3.1"
+  }
+}
