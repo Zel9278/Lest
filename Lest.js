@@ -44,7 +44,7 @@ class Lest {
       ],
       config: {
         bot_config: {
-          commands_path: "./commands.js",
+          commands: {cmds:[]},
           prefix: "/",
           admin: [],
           default: []
@@ -57,7 +57,7 @@ class Lest {
     this.client = new this.discord.Client();
     this.client.lest = {};
     this.config = config;
-    this.commands = require(this.config.bot_config.commands_path);
+    this.commands = this.config.bot_config.commands;
 
     this.client.on("ready", async () => {
       if(this.config.bot_config.default) {

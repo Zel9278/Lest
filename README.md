@@ -8,7 +8,7 @@
 ```javascript
 const config = {
   bot_config: {
-    commands_path: "./commands.js",//コマンドファイルのパス
+    commands: require("./commands.js"),//command require("command path")か{cmds: []}
     prefix: "/",//プレフィックス
     admin: ["12345..."],//adminがついてるコマンドが使える人のID
     default: ["help", "reload"]//defaultコマンド、helpとreloadだけしか今はない
