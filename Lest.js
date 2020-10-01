@@ -2,45 +2,6 @@ class Lest {
   constructor(config) {
     var defaults = {
       commands: [
-        {
-          name: "reload",
-          description: "commandをリロードします",
-          example: "reload",
-          admin: true,
-          category: "デベロッパーツール",
-          func: ({client, message}) => {
-            this.commands = null;
-            delete require.cache[require.resolve(this.config.bot_config.commands_path)];
-            this.commands = require(this.config.bot_config.commands_path);
-            this.commands.categories = {
-              list: [],
-              splitData: []
-            };
-            this.commands.subCommands = [];
-
-            if(this.config.bot_config.default) {
-              this.config.bot_config.default.forEach((comName, index) => {
-                if(!(defaults.commands.find(c => c.name === comName))) return;
-                this.commands.cmds.unshift(defaults.commands.find(c => c.name === comName));
-              });
-              console.log(`${this.commands.cmds.length} loaded: ${this.commands.cmds.map(c => c.name).join(", ")}`);
-            }
-            this.commands.cmds.forEach(i => {
-              if(i.subCommand) {
-                this.commands.cmds = this.commands.cmds.filter(n => n !== i);
-                this.commands.subCommands.push(i);
-                this.commands.categories.splitData["サブコマンド"] = [];
-                this.commands.categories.splitData["サブコマンド"].push(i);
-              }
-              if(i.func == null) return this.commands.cmds = this.commands.cmds.filter(n => n !== i);
-              var cat = i["category"];
-              var isUnspecified = (cat == undefined || cat == null || cat == "") ? "unspecified" : cat;
-              if(typeof this.commands.categories.splitData[isUnspecified] == "undefined") this.commands.categories.splitData[isUnspecified] = [];
-              this.commands.categories.splitData[isUnspecified].push(i);
-            });
-            this.commands.categories.list = Object.keys(this.commands.categories.splitData);
-          }
-        }
       ],
       config: {
         bot_config: {

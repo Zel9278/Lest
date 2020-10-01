@@ -11,7 +11,7 @@ const config = {
     commands: require("./commands.js"),//command require("command path")か{cmds: []}
     prefix: "/",//プレフィックス
     admin: ["12345..."],//adminがついてるコマンドが使える人のID
-    default: ["help", "reload"]//defaultコマンド、helpとreloadだけしか今はない
+    default: ["help"]//defaultコマンド、今はhelpだけしか今はない
   }
 };
 
