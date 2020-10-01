@@ -3,6 +3,9 @@
 <br>自己満足のために作ったので文句は受け付けないです。
 <br>Lestという名前で再公開しました。
 
+## インストール
+`npm install git+https://github.com/Zel9278/Lest.git`
+
 ## 方法
 
 ```javascript
@@ -15,7 +18,7 @@ const config = {
   }
 };
 
-const Lest   = require("./Lest.js")//このフレームワークのファイル
+const Lest   = require("@Zel9278/lest")
     , cf     = new Lest(config)
     //, discord = cf.discord
     , client = cf.client;
