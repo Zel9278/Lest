@@ -63,6 +63,7 @@ class Lest {
     const command = arg.shift().toLowerCase();
     const com = c.commands.cmds.find(_c => _c.name === command);
 
+    if(c.admin && !this.config.bot_config.admin.some(ad => ad === message.author.id)) return message.reply("管理者コマンドを使う権限がありません。");
     if(c.commands.subCommands.some(_c => _c.name === command)) return this.subcmd(arg, message, c.commands.subCommands.find(_c => _c.name === command));
     if(c.commands.cmds.some(_c => _c.name === command)) {
       if(com.admin) {

@@ -32,6 +32,7 @@ const commands = {
       name: "echo",//コマンドの名前
       description: "こだま返し",//コマンドの説明
       example: ".echo <text>",//コマンドの使用例
+      category: "玩具",//コマンドのカテゴリー
       func: ({message, args}) => {
         message.channel.send({
           embed: {
@@ -45,6 +46,7 @@ const commands = {
       name: "test",
       description: "デバッグ",
       example: ".test",
+      category: "デベロッパーツール",
       admin: true,//adminコマンドの場合はここを追加
       func: () => {
         ...
@@ -54,7 +56,7 @@ const commands = {
       name: "subcmd",
       description: "デバッグ",
       example: "subcmd help",
-      subCommand: true,
+      subCommand: true,//カテゴリーはサブコマンドに固定されます。
       commands: {}//subcommand require("subcommand path")か{cmds: []}
     }
   ]
@@ -65,3 +67,8 @@ module.exports = commands;
 
 ## その他
 `<client>.lest: this.lest`
+
+## 注意
+```
+message.client.lest.config //メッセージの応答のとき別のやつがある場合configはここから参照しないといけない
+```
