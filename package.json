@@ -1,6 +1,6 @@
 {
   "name": "@Zel9278/lest",
-  "version": "2.2.5",
+  "version": "2.2.6",
   "description": "Lest - Discor.js Command Framework",
   "main": "Lest.js",
   "scripts": {

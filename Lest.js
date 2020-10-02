@@ -115,7 +115,6 @@ class Lest {
       if(i.func == null) return commands.cmds = commands.cmds.filter(n => n !== i);
 
       if(i.admin) {
-        commands.cmds = commands.cmds.filter(n => n !== i);
         if(typeof commands.categories.splitData["アドミン"] == "undefined") commands.categories.splitData["アドミン"] = [];
         commands.categories.splitData["アドミン"].push(i);
         return;
