@@ -49,7 +49,7 @@ const commands = {
       name: "test",
       description: "デバッグ",
       example: ".test",
-      category: "デベロッパーツール",
+      category: "デベロッパーツール",//カテゴリーはアドミンに固定されます
       admin: true,//adminコマンドの場合はここを追加
       func: () => {
         ...

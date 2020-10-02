@@ -99,17 +99,28 @@ class Lest {
       if(i.subCommand) {
         commands.cmds = commands.cmds.filter(n => n !== i);
         commands.subCommands.push(i);
-        commands.categories.splitData["サブコマンド"] = [];
-        commands.categories.splitData["サブコマンド"].push(i);
+
         i.commands.categories = {
           list: [],
           splitData: []
         };
         i.commands.subCommands = [];
+
+        if(typeof commands.categories.splitData["サブコマンド"] == "undefined") commands.categories.splitData["サブコマンド"] = [];
+        commands.categories.splitData["サブコマンド"].push(i);
+
         this.initCommands(i.commands);
       }
 
       if(i.func == null) return commands.cmds = commands.cmds.filter(n => n !== i);
+
+      if(i.admin) {
+        commands.cmds = commands.cmds.filter(n => n !== i);
+        if(typeof commands.categories.splitData["アドミン"] == "undefined") commands.categories.splitData["アドミン"] = [];
+        commands.categories.splitData["アドミン"].push(i);
+        return;
+      }
+
       var cat = i["category"];
       var isUnspecified = (cat == undefined || cat == null || cat == "") ? "未指定" : cat;
       if(typeof commands.categories.splitData[isUnspecified] == "undefined") commands.categories.splitData[isUnspecified] = [];
@@ -127,7 +138,14 @@ class Lest {
       func: ({message, args}) => {
         commands.cmds.sort();
         const [tx] = args;
-        var viewData = commands.categories.list.map(i => { return { name: i, value: commands.categories.splitData[i].map(a => { return "`" + a.name + "`" }).join(", ") }; });
+        var viewData = commands.categories.list.map(i => {
+          return {
+            name: i,
+            value: commands.categories.splitData[i].map(a => {
+              return "`" + a.name + "`";
+            }).join(", ")
+          };
+        });
 
         if(tx == null) {
           message.channel.send({
