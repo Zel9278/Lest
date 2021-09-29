@@ -1,0 +1,27 @@
+{
+  "name": "lest",
+  "version": "1.0.0",
+  "main": "./dist/index.js",
+  "scripts": {
+    "test": "cd test && node . && cd ..",
+    "build": "tsc --locale ja-jp",
+    "watch": "tsc --watch"
+  },
+  "dependencies": {
+    "@babel/code-frame": "^7.12.13",
+    "@discordjs/collection": "^0.1.6",
+    "axios": "^0.21.1",
+    "discord.js": "^13.1.0",
+    "syntax-error": "^1.4.0"
+  },
+  "devDependencies": {
+    "@types/node": "^16.9.4",
+    "ts-node": "^10.1.0",
+    "typescript": "^4.3.5",
+    "prettier": "^2.4.1"
+  },
+  "prettier": {
+    "semi": false,
+    "singleQuote": true
+  }
+}
